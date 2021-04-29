@@ -18,26 +18,27 @@ public class Solution {
         oos.writeObject(new String("test string"));
         oos.flush();
         System.out.println(compareMD5(bos, "5a47d12a2e3f9fecf2d9ba1fd98152eb")); //true
-
     }
 
     public static boolean compareMD5(ByteArrayOutputStream byteArrayOutputStream, String md5) throws Exception {
         MessageDigest md = MessageDigest.getInstance("MD5");
         byte[] toByteArray = byteArrayOutputStream.toByteArray();
         byte[] digest = md.digest(toByteArray);
-        StringBuilder sb = new StringBuilder();
+
+        //Вариант 1
+        StringBuilder md5Hex = new StringBuilder();
 
         for (byte b : digest) {
-            sb.append(String.format("%02x", b));
+            md5Hex.append(String.format("%02x", b));
+
+            //Вариант 2
+            //md5Hex.append(Integer.toHexString(b & 0xFF));
         }
 
-        return sb.toString().equals(md5);
+        //Вариант 3
+        /*BigInteger bigInt = new BigInteger(1, digest);
+        String md5Hex = bigInt.toString(16);*/
 
-        /*MessageDigest md = MessageDigest.getInstance("MD5");
-        byte[] toByteArray = byteArrayOutputStream.toByteArray();
-        byte[] digest = md.digest(toByteArray);
-        BigInteger bigInt = new BigInteger(1, digest);
-        String md5Hex = bigInt.toString(16);
-        return md5.equals(md5Hex);*/
+        return md5.equals(md5Hex.toString());
     }
 }
