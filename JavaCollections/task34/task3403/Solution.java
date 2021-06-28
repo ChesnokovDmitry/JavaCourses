@@ -17,16 +17,13 @@ public class Solution {
         int div = 2;
 
         if (n > 1) {
-            if (n % div == 0) {
-                System.out.print(div + " ");
-                recurse(n / div);
-            } else {
+            if (n % div != 0) {
                 while (n % div != 0)
                     div++;
 
-                System.out.print(div + " ");
-                recurse(n / div);
             }
+            System.out.print(div + " ");
+            recurse(n / div);
         }
     }
 }
