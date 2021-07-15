@@ -2,7 +2,6 @@ package com.javarush.task.task37.task3707;
 
 import java.io.*;
 import java.util.*;
-import java.util.HashSet;
 
 public class AmigoSet<E> extends AbstractSet<E> implements Serializable, Cloneable, Set<E> {
     private static final Object PRESENT = new Object();
