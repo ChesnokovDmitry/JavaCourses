@@ -43,20 +43,6 @@ public class AmigoSet<E> extends AbstractSet<E> implements Serializable, Cloneab
         }
     }
 
-/*    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        if (!super.equals(o)) return false;
-        AmigoSet<?> amigoSet = (AmigoSet<?>) o;
-        return map.equals(amigoSet.map);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(super.hashCode(), map);
-    }*/
-
     @Override
     public boolean add(E e) {
         if (!map.containsKey(e)) {
