@@ -1,2 +1,1 @@
-# JavaCourses
-Задачи онлайн-курсов
+Online course projects
